@@ -23,12 +23,26 @@ async function scrollToBottom(page) {
  * --love
  * --insightful
  * --funny
- * --entertainment
  * to delete differnt kinds of reactions.
  */
 
 async function clickElementsWithRandomDelay() {
-  const elements = document.querySelectorAll('[class*="--like"]');
+  const like_elements = document.querySelectorAll('button[aria-label*="Unreact Like"]');
+  const celebrate_elements = document.querySelectorAll('button[aria-label*="Unreact Celebrate"]');
+  const support_elements = document.querySelectorAll('button[aria-label*="Unreact Support"]');
+  const love_elements = document.querySelectorAll('button[aria-label*="Unreact Love"]');
+  const insightful_elements = document.querySelectorAll('button[aria-label*="Unreact Insightful"]');
+  const funny_elements = document.querySelectorAll('button[aria-label*="Unreact Funny"]');
+
+  // combine all elements
+  const elements = [
+    ...like_elements,
+    ...celebrate_elements,
+    ...support_elements,
+    ...love_elements,
+    ...insightful_elements,
+    ...funny_elements
+  ];
 
   for (const element of elements) {
     const delay = getRandomDelay(1000, 7000);
@@ -45,5 +59,3 @@ async function clickElementsWithRandomDelay() {
 }
 
 clickElementsWithRandomDelay();
-
-
